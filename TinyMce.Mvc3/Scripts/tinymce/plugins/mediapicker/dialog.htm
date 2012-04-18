@@ -6,29 +6,40 @@
 	<script type="text/javascript" src="../../utils/mctabs.js"></script>
 	<script type="text/javascript" src="js/dialog.js"></script>
 </head>
-<body>
-    <form onsubmit="MediaPickerDialog.insert();return false;" action="#">
+    <body>
         <div class="tabs">
             <ul>
-                <li id="insert_tab" class="current" aria-controls="insert_panel"><span><a href="javascript:mcTabs.displayTab('insert_tab','insert_panel');" onmousedown="return false;">Insert/Upload Image</a></span></li>
-                <li id="browse_tab" aria-controls="browse_panel"><span><a href="javascript:mcTabs.displayTab('browse_tab','browse_panel');" onmousedown="return false;">Browse Media</a></span></li>
+                <li id="images_tab" class="current" aria-controls="images_panel"><span><a href="javascript:mcTabs.displayTab('images_tab','images_panel');" onmousedown="return false;">Insert/Upload Image</a></span></li>
+                <li id="files_tab" aria-controls="files_panel"><span><a href="javascript:mcTabs.displayTab('files_tab','files_panel');" onmousedown="return false;">Insert/Upload File</a></span></li>
             </ul>
         </div>
         
         <div class="panel_wrapper">
-            <div id="insert_panel" class="panel current">
-                <input type="text" id="someval" name="someval" class="text"/>
+            <div id="images_panel" class="panel current">
+                
+                <form onsubmit="MediaPickerDialog.insert();return false;" action="#">
+                    Image:
+                    <input type="text" id="someval" name="someval" class="text"/>
+                    <div class="mceActionPanel">
+                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insert();" />
+                        <input type="button" class="button" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                    </div>
+                </form>
+
             </div>
             
-            <div id="browse_panel" class="panel">
-                second panel
+            <div id="files_panel" class="panel">
+                
+                <form onsubmit="MediaPickerDialog.insert();return false;" action="#">
+                    File:
+                    <input type="text" id="someval1" name="someval" class="text"/>
+                    <div class="mceActionPanel">
+                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insert();" />
+                        <input type="button" class="button" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                    </div>
+                </form>
+
             </div>
         </div>
-        
-        <div class="mceActionPanel">
-		    <input type="button" id="insert" name="insert" value="{#insert}" onclick="MediaPickerDialog.insert();" />
-		    <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
-	    </div>
-    </form>
-</body>
+    </body>
 </html>
