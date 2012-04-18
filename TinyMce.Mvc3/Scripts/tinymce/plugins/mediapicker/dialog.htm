@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Media Picker</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
 	<script type="text/javascript" src="../../utils/mctabs.js"></script>
-	<script type="text/javascript" src="js/dialog.js"></script>
+    <script type="text/javascript" src="js/dialog.js"></script>
 </head>
     <body>
         <div class="tabs">
@@ -17,11 +18,11 @@
         <div class="panel_wrapper">
             <div id="images_panel" class="panel current">
                 
-                <form onsubmit="MediaPickerDialog.insert();return false;" action="#">
+                <form onsubmit="MediaPickerDialog.insertImage();return false;" action="#">
                     Image:
-                    <input type="text" id="someval" name="someval" class="text"/>
+                    <input type="text" id="ImageTag" name="ImageTag" class="text"/>
                     <div class="mceActionPanel">
-                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insert();" />
+                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertImage();" />
                         <input type="button" class="button" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
                     </div>
                 </form>
@@ -30,11 +31,11 @@
             
             <div id="files_panel" class="panel">
                 
-                <form onsubmit="MediaPickerDialog.insert();return false;" action="#">
+                <form onsubmit="MediaPickerDialog.insertFile();return false;" action="#">
                     File:
-                    <input type="text" id="someval1" name="someval" class="text"/>
+                    <input type="text" id="FileLink" name="FileLink" class="text"/>
                     <div class="mceActionPanel">
-                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insert();" />
+                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertFile();" />
                         <input type="button" class="button" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
                     </div>
                 </form>

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using TinyMce.Mvc3.Models;
 
 namespace TinyMce.Mvc3.Controllers
 {
@@ -10,14 +7,11 @@ namespace TinyMce.Mvc3.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            var model = new TestModel();
 
-            return View();
-        }
+            model.Content = MvcHtmlString.Create("<img src='http://freeimagesarchive.com/data/media/8/5_images.jpg'/>").ToString();
 
-        public ActionResult About()
-        {
-            return View();
+            return View(model);
         }
     }
 }
