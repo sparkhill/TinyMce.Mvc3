@@ -3,9 +3,7 @@ tinyMCEPopup.requireLangPack();
 var MediaPickerDialog = {
     init: function () {
         var f = document.forms[0];
-
         var content = tinyMCEPopup.editor.selection.getContent();
-
         $("#ImageTag").val(content);
 
         // Get the selected contents as text and place it in the input

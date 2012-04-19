@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "specs", "specs", "{210279B2
 		specs\implementation.md = specs\implementation.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyMce.Mvc3.Test", "TinyMce.Mvc3.Test\TinyMce.Mvc3.Test.csproj", "{8054D1B3-3038-4E0F-9917-C3220163F8D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPickerService", "MediaPickerService\MediaPickerService.csproj", "{0FE016B3-EA71-4C4A-84D2-F838E2B8BBED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{7D3B5E05-14B1-4F1A-922B-B3E10842925C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D3B5E05-14B1-4F1A-922B-B3E10842925C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D3B5E05-14B1-4F1A-922B-B3E10842925C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8054D1B3-3038-4E0F-9917-C3220163F8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8054D1B3-3038-4E0F-9917-C3220163F8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8054D1B3-3038-4E0F-9917-C3220163F8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8054D1B3-3038-4E0F-9917-C3220163F8D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FE016B3-EA71-4C4A-84D2-F838E2B8BBED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE016B3-EA71-4C4A-84D2-F838E2B8BBED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE016B3-EA71-4C4A-84D2-F838E2B8BBED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE016B3-EA71-4C4A-84D2-F838E2B8BBED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

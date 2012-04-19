@@ -6,6 +6,7 @@
 	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
 	<script type="text/javascript" src="../../utils/mctabs.js"></script>
     <script type="text/javascript" src="js/dialog.js"></script>
+    <script type="text/javascript" src="js/mediapicker.js"></script>
 </head>
     <body>
         <div class="tabs">
@@ -15,15 +16,92 @@
             </ul>
         </div>
         
-        <div class="panel_wrapper">
+        <div class="panel_wrapper" style="height:400px;">
             <div id="images_panel" class="panel current">
+                <fieldset>
+                    <legend>Media</legend>
+                    <div class="breadcrumbs">
+                        breadcrumbs go here
+                    </div>
+                    <div class="directory-list">
+                        directory list goes here
+                    </div>
+                </fieldset>
                 
+                <fieldset>
+                    <legend>New Folder</legend>
+                    
+                    <form action="#" class="folder-creation">
+                        <div>
+                            <input type="text" name="FolderName"/>
+                        </div>
+                        <div>
+                            <input type="submit" value="Add Folder" class="button"/>
+                        </div>
+                    </form>    
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Upload Image</legend>
+                    <form action="#" class="upload-image">
+                        <div>
+                            <input type="file" name="Image" value="Choose File"/>
+                        </div>
+                    
+                        <div>
+                            <input type="submit" value="Add Image" class="button"/>
+                        </div>
+                    </form>
+                </fieldset>
+                
+                <div>
+                    <div>
+                        image url:
+                        <input type="text" name="ImageUrl"/>
+                    </div>
+                    
+                    <div>
+                        alt text:
+                        <input type="text" name="AltText" />
+                    </div>
+
+                    <div>
+                        class:
+                        <input type="text" name="CssClass"/>
+                    </div>
+                    
+                    <div>
+                        style:
+                        <input type="text" name="CssStyles"/>
+                    </div>
+                    
+                    <div>
+                        alignment:
+                        <select name="Alignment">
+                            <option>Left</option>
+                            <option>Center</option>
+                            <option>Right</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        size:
+                        <input type="text" name="Width"/>
+                        X
+                        <input type="text" name="Height"/>
+                    </div>
+                    <div>
+                        lock aspect ratio:
+                        <input type="checkbox" name="LockAspectRatio"/>
+                    </div>
+                </div>
+
                 <form onsubmit="MediaPickerDialog.insertImage();return false;" action="#">
                     Image:
                     <input type="text" id="ImageTag" name="ImageTag" class="text"/>
                     <div class="mceActionPanel">
-                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertImage();" />
-                        <input type="button" class="button" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                        <input type="button" class="button" id="insert" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertImage();" />
+                        <input type="button" class="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
                     </div>
                 </form>
 
@@ -35,8 +113,8 @@
                     File:
                     <input type="text" id="FileLink" name="FileLink" class="text"/>
                     <div class="mceActionPanel">
-                        <input type="button" class="button" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertFile();" />
-                        <input type="button" class="button" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                        <input type="button" class="button" id="insert" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertFile();" />
+                        <input type="button" class="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
                     </div>
                 </form>
 

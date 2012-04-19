@@ -3,14 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MediaPickerService;
 
 namespace TinyMce.Mvc3.Controllers
 {
     public class MediaPickerController : Controller
     {
-        public ActionResult Index()
+        private readonly IMediaService _mediaService;
+
+        public MediaPickerController() : this(new MediaService())
         {
-            return View();
+            
+        }
+
+        public MediaPickerController(IMediaService mediaService)
+        {
+            _mediaService = mediaService;
+        }
+
+        public Action Index()
+        {
+            return null;
+        }
+
+        public JsonResult GetImages(string path)
+        {
+            var obj = _mediaService.GetImageTransport(path);
+            return Json(obj, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -56,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Media\appbar.alert.png" />
+    <Content Include="App_Data\Media\appbar.box.png" />
+    <Content Include="App_Data\Media\appbar.plane.png" />
+    <Content Include="App_Data\Media\test.txt" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
@@ -67,6 +71,7 @@
     <Content Include="Scripts\tinymce\plugins\mediapicker\editor_plugin_min.js" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\img\mediapicker.png" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\js\dialog.js" />
+    <Content Include="Scripts\tinymce\plugins\mediapicker\js\mediapicker.js" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\langs\en.js" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\langs\en_dlg.js" />
     <Content Include="Scripts\tinymce\themes\advanced\about.htm" />
@@ -150,13 +155,19 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <ProjectReference Include="..\MediaPickerService\MediaPickerService.csproj">
+      <Project>{0FE016B3-EA71-4C4A-84D2-F838E2B8BBED}</Project>
+      <Name>MediaPickerService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\TinyMce.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Media\things\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
