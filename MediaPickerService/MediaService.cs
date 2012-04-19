@@ -8,15 +8,27 @@ namespace MediaPickerService
 {
     public class MediaService : IMediaService
     {
+        private string _path;
+        private string _root;
+
         public string ResolveMediaPath(string path)
         {
             var root = ConfigurationManager.AppSettings["MediaDirectory"];
+
+            _path = path;
+            _root = root;
+
             if (path == null)
                 path = "";
 
             // if it starts with a squiggly we need to resolve by the application root
             if (string.IsNullOrEmpty(root))
                 return "";
+
+            path = path.Replace(@"//", @"/");
+
+            if (!string.IsNullOrEmpty(path) && path[0] == '/')
+                path = path.Substring(1);
 
             path = path.Replace(@"/", @"\");
 
@@ -42,7 +54,7 @@ namespace MediaPickerService
             var mediae = BuildMediaeList(physical);
 
             // create the breadcrumbs
-            var breadcrumbs = BuildBreadcrumbs(physical);
+            var breadcrumbs = BuildBreadcrumbs();
 
             // return transport object.
             return new Transport
@@ -52,9 +64,39 @@ namespace MediaPickerService
             };
         }
 
-        private IEnumerable<Breadcrumb> BuildBreadcrumbs(string path)
+        private IEnumerable<Breadcrumb> BuildBreadcrumbs()
         {
-            return new List<Breadcrumb>();
+            var breadcrumbs = new List<Breadcrumb>
+            {
+                new Breadcrumb {Name = "Media", Url = ""}
+            };
+
+            var path = _path.Replace("\\", "/");
+
+            var directories = path.Split('/');
+
+            for (int i = 0; i < directories.Length; i++)
+            {
+                var name = directories[i];
+                var url = "";
+
+                if(string.IsNullOrEmpty(name)) continue;
+
+                for (var j = 0; j < i + 1; j++)
+                    url += directories[j] + "/";
+
+                url = url.Trim('/');
+
+                var item = new Breadcrumb
+                {
+                    Name = name,
+                    Url = url
+                };
+
+                breadcrumbs.Add(item);
+            }
+
+            return breadcrumbs;
         }
 
         private IEnumerable<Media> BuildMediaeList(string path)
@@ -80,13 +122,18 @@ namespace MediaPickerService
             {
                 if (!IsImage(file)) continue;
 
+                var name = Path.GetFileName(file);
+                var url = Path.Combine(_path, (name ?? ""));
+
+                url = url.Replace(@"\", @"/");
+
                 var item = new Media
                 {
                     Icon = "image.png",
                     IsDirectory = false,
-                    Name = Path.GetFileName(file),
+                    Name = name,
                     Size = 50,
-                    Url = "???"
+                    Url = url
                 };
 
                 list.Add(item);
@@ -122,13 +169,16 @@ namespace MediaPickerService
 
             foreach (var folder in folders)
             {
+                var name = Path.GetFileName(folder);
+                var url = Path.Combine(_path, (name ?? ""));
+
                 var media = new Media
                 {
                     Icon = "folder.png",
                     IsDirectory = true,
-                    Name = Path.GetFileName(folder),
+                    Name = name,
                     Size = null,
-                    Url = "???"
+                    Url = url
                 };
 
                 list.Add(media);

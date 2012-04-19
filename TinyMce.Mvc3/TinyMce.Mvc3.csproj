@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Media\appbar.alert.png" />
-    <Content Include="App_Data\Media\appbar.box.png" />
+    <Content Include="App_Data\Media\test\appbar.box.png" />
     <Content Include="App_Data\Media\appbar.plane.png" />
     <Content Include="App_Data\Media\test.txt" />
     <Content Include="Global.asax" />
@@ -72,6 +72,7 @@
     <Content Include="Scripts\tinymce\plugins\mediapicker\img\mediapicker.png" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\js\dialog.js" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\js\mediapicker.js" />
+    <Content Include="Scripts\tinymce\plugins\mediapicker\js\sugar-1.2.4.min.js" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\langs\en.js" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\langs\en_dlg.js" />
     <Content Include="Scripts\tinymce\themes\advanced\about.htm" />
@@ -167,7 +168,8 @@
     <Content Include="Views\Shared\EditorTemplates\TinyMce.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Media\things\" />
+    <Folder Include="App_Data\Media\test\another test\test 2\test 3\" />
+    <Folder Include="App_Data\Media\things and stuff\more things\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

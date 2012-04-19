@@ -5,8 +5,14 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
 	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+    <script type="text/javascript" src="js/sugar-1.2.4.min.js"></script>
     <script type="text/javascript" src="js/dialog.js"></script>
     <script type="text/javascript" src="js/mediapicker.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            cache: false
+        });
+    </script>
 </head>
     <body>
         <div class="tabs">
@@ -21,10 +27,9 @@
                 <fieldset>
                     <legend>Media</legend>
                     <div class="breadcrumbs">
-                        breadcrumbs go here
                     </div>
                     <div class="directory-list">
-                        directory list goes here
+                        <ul class="media-list"></ul>
                     </div>
                 </fieldset>
                 
