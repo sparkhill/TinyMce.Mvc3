@@ -51,13 +51,14 @@
     }
 
     function addToMediaList(m) {
-        var list, name, url, isDirectory, item;
+        var list, name, url, isDirectory, item, contentType;
 
         list = $(".media-list");
         name = m.Name;
         url = m.Url;
         isDirectory = m.IsDirectory;
-        item = '<li><a href="#" data-isdirectory="' + isDirectory + '" data-path="' + url + '">' + name + '</a></li>';
+        contentType = m.ContentType;
+        item = '<li><a class="' + contentType + '" href="#" data-isdirectory="' + isDirectory + '" data-path="' + url + '">' + name + '</a></li>';
         list.append(item);
     }
 

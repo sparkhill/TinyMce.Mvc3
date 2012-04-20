@@ -1,0 +1,28 @@
+﻿.directory-list {
+    height: 150px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.directory-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.directory-list ul li a {
+    display: block;
+    padding: 3px;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position:0 50%;
+    text-decoration: none;
+}
+
+.folder {
+    background-image: url(images/folder.png);
+}
+
+.image {
+    background-image: url(images/image.png);
+}

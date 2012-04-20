@@ -66,6 +66,9 @@
     <Content Include="Scripts\tinymce\jquery.tinymce.js" />
     <Content Include="Scripts\tinymce\langs\en.js" />
     <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\mediapicker\css\images\folder.png" />
+    <Content Include="Scripts\tinymce\plugins\mediapicker\css\images\image.png" />
+    <Content Include="Scripts\tinymce\plugins\mediapicker\css\mediapicker.css" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\dialog.htm" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\editor_plugin.js" />
     <Content Include="Scripts\tinymce\plugins\mediapicker\editor_plugin_min.js" />

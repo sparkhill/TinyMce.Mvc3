@@ -114,6 +114,30 @@ namespace MediaPickerService
             return mediaList;
         }
 
+        private IEnumerable<Media> GetDirectoryList(IEnumerable<string> folders)
+        {
+            var list = new List<Media>();
+
+            foreach (var folder in folders)
+            {
+                var name = Path.GetFileName(folder);
+                var url = Path.Combine(_path, (name ?? ""));
+
+                var media = new Media
+                {
+                    ContentType = "folder",
+                    IsDirectory = true,
+                    Name = name,
+                    Size = null,
+                    Url = url
+                };
+
+                list.Add(media);
+            }
+
+            return list;
+        }
+
         private IEnumerable<Media> GetImageList(IEnumerable<string> files)
         {
             var list = new List<Media>();
@@ -129,7 +153,7 @@ namespace MediaPickerService
 
                 var item = new Media
                 {
-                    Icon = "image.png",
+                    ContentType = "image",
                     IsDirectory = false,
                     Name = name,
                     Size = 50,
@@ -161,30 +185,6 @@ namespace MediaPickerService
                 default:
                     return false;
             }
-        }
-
-        private IEnumerable<Media> GetDirectoryList(IEnumerable<string> folders)
-        {
-            var list = new List<Media>();
-
-            foreach (var folder in folders)
-            {
-                var name = Path.GetFileName(folder);
-                var url = Path.Combine(_path, (name ?? ""));
-
-                var media = new Media
-                {
-                    Icon = "folder.png",
-                    IsDirectory = true,
-                    Name = name,
-                    Size = null,
-                    Url = url
-                };
-
-                list.Add(media);
-            }
-
-            return list;
         }
     }
 
