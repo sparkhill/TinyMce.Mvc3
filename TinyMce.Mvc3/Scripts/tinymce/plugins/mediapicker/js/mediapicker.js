@@ -1,10 +1,26 @@
 ﻿(function () {
 
-    var baseUrl;
+    var baseUrl, downloadUrl, currPath;
 
     $(function () {
         baseUrl = tinyMCEPopup.getWindowArg('mediapicker_url');
+        downloadUrl = tinyMCEPopup.getWindowArg('mediapicker_download_url');
         loadMedia('');
+    });
+
+    $("form.folder-creation").live('submit', function () {
+        var t = $(this), url, data;
+
+
+        url = baseUrl + "/CreateFolder?path=" + currPath;
+        data = t.serialize();
+
+        $.post(url, data, function () {
+            loadMedia(currPath);
+            $('.folder-creation input[type="text"]').val('');
+        });
+
+        return false;
     });
 
     $(".media-list a").live('click', function () {
@@ -26,6 +42,7 @@
 
     function loadMedia(path) {
         var url = baseUrl + "/GetImages?" + $.param({ path: path });
+        currPath = path;
 
         $.get(url, function (data) {
             deserializeTransport(data);
@@ -78,7 +95,10 @@
 
     function fileClicked(e) {
         var url = e.data("path");
-        alert(url);
+
+        url = downloadUrl + "?path=" + url;
+
+        $("#ImageUrl").val(url);
     }
 
 })();

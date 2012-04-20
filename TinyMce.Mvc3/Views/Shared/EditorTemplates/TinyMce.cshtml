@@ -1,5 +1,4 @@
 ﻿@Html.TextArea(string.Empty,  ViewData.TemplateInfo.FormattedModelValue)
-
 <script type="text/javascript">
     $(function () {
         $('#@ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty)').tinymce({
@@ -15,7 +14,8 @@
             theme_advanced_toolbar_location: "top",
             theme_advanced_toolbar_align: "left",
             convert_urls: false,
-            mediapicker_url: '@Url.Action("Index", "MediaPicker")'
+            mediapicker_url: '@Url.Action("Index", "MediaPicker")',
+            mediapicker_download_url: '@Url.Action("Download", "MediaPicker")'
         });
     });
 </script>

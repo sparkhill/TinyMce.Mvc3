@@ -31,7 +31,8 @@
                     inline: 1
                 }, {
                     plugin_url: url, // Plugin absolute URL
-                    mediapicker_url: ed.getParam('mediapicker_url') // mp url param
+                    mediapicker_url: ed.getParam('mediapicker_url'), // mp url param
+                    mediapicker_download_url: ed.getParam('mediapicker_download_url')
                 });
             });
 

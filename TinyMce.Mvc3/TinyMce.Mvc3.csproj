@@ -58,7 +58,7 @@
   <ItemGroup>
     <Content Include="App_Data\Media\appbar.alert.png" />
     <Content Include="App_Data\Media\test\appbar.box.png" />
-    <Content Include="App_Data\Media\appbar.plane.png" />
+    <Content Include="App_Data\Media\pic.png" />
     <Content Include="App_Data\Media\test.txt" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />

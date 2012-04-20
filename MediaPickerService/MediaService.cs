@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using MediaPickerService.Dto;
+using Microsoft.Win32;
 
 namespace MediaPickerService
 {
@@ -62,6 +63,46 @@ namespace MediaPickerService
                 Breadcrumbs = breadcrumbs,
                 Mediae = mediae
             };
+        }
+
+        public byte[] GetFile(string path)
+        {
+            var fname = ResolveMediaPath(path);
+            var file = File.ReadAllBytes(fname);
+            return file;
+        }
+
+        public string GetMimeType(string path)
+        {
+            string mimeType = "application/unknown";
+            string ext = Path.GetExtension(path);
+
+            if (string.IsNullOrEmpty(ext))
+                return mimeType;
+
+            ext = ext.ToLower();
+
+            RegistryKey regKey = Registry.ClassesRoot.OpenSubKey(ext);
+
+            if (regKey != null && regKey.GetValue("Content Type") != null)
+                mimeType = regKey.GetValue("Content Type").ToString();
+
+            return mimeType;
+        }
+
+        public bool CreateFolder(string path, string foldername)
+        {
+            try
+            {
+                var fullpath = ResolveMediaPath(path);
+                fullpath = Path.Combine(fullpath, foldername);
+                Directory.CreateDirectory(fullpath);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private IEnumerable<Breadcrumb> BuildBreadcrumbs()
@@ -192,5 +233,8 @@ namespace MediaPickerService
     {
         string ResolveMediaPath(string path);
         Transport GetImageTransport(string path);
+        byte[] GetFile(string path);
+        string GetMimeType(string path);
+        bool CreateFolder(string path, string foldername);
     }
 }

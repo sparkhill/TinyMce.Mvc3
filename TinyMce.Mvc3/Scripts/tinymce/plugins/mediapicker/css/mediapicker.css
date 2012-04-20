@@ -1,7 +1,11 @@
-﻿.directory-list {
+﻿.breadcrumbs {
+    margin-bottom: 5px;
+}
+
+.directory-list {
     height: 150px;
     overflow-y: auto;
-    padding: 5px;
+    padding: 0 5px;
 }
 
 .directory-list ul {
