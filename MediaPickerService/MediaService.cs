@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Web;
 using MediaPickerService.Dto;
 using Microsoft.Win32;
 
@@ -97,6 +98,21 @@ namespace MediaPickerService
                 var fullpath = ResolveMediaPath(path);
                 fullpath = Path.Combine(fullpath, foldername);
                 Directory.CreateDirectory(fullpath);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool StoreFile(HttpPostedFileBase thefile, string path)
+        {
+            try
+            {
+                var p = ResolveMediaPath(path);
+                var fname = Path.Combine(p, thefile.FileName);
+                thefile.SaveAs(fname);
                 return true;
             }
             catch
@@ -236,5 +252,6 @@ namespace MediaPickerService
         byte[] GetFile(string path);
         string GetMimeType(string path);
         bool CreateFolder(string path, string foldername);
+        bool StoreFile(HttpPostedFileBase thefile, string path);
     }
 }

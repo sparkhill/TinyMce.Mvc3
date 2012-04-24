@@ -13,6 +13,10 @@
         $.ajaxSetup({
             cache: false
         });
+
+        $(function() {
+            mediapicker.init();
+        });
     </script>
 </head>
     <body>
@@ -38,7 +42,7 @@
                     <fieldset>
                         <legend>New Folder</legend>
                     
-                        <form action="#" class="folder-creation">
+                        <form action="#" class="folder-creation" method="POST">
                             <div>
                                 <input type="text" id="FolderName" name="FolderName"/>
                             </div>
@@ -50,9 +54,9 @@
                 
                     <fieldset>
                         <legend>Upload Image</legend>
-                        <form action="#" class="upload-image">
+                        <form action="#" class="upload-image" method="POST" enctype="multipart/form-data">
                             <div>
-                                <input type="file" name="Image" value="Choose File"/>
+                                <input type="file" name="TheFile" value="Choose File"/>
                             </div>
                     
                             <div>

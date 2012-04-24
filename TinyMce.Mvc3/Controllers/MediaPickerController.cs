@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using MediaPickerService;
 
@@ -41,6 +42,26 @@ namespace TinyMce.Mvc3.Controllers
         {
             var success = _mediaService.CreateFolder(path, foldername);
             return Json(success);
+        }
+
+        [HttpPost]
+        public ContentResult UploadFile(string path, HttpPostedFileBase thefile)
+        {
+            _mediaService.StoreFile(thefile, path);
+
+            var code = "Upload Successful!";
+
+            var script =
+            @"
+                <script>
+                    parent.mediapicker.uploadComplete('{0}');
+                </script>
+            ";
+
+            script = string.Format(script, code);
+
+            var retval = new MvcHtmlString(script).ToString();
+            return Content(retval);
         }
     }
 }
