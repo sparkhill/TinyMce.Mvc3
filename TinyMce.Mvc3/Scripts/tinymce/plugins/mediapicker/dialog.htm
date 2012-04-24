@@ -23,93 +23,115 @@
             </ul>
         </div>
         
-        <div class="panel_wrapper" style="height:400px;">
+        <div class="panel_wrapper">
             <div id="images_panel" class="panel current">
+                <div class="breadcrumbs"></div>
                 <fieldset>
                     <legend>Media</legend>
-                    <div class="breadcrumbs">
-                    </div>
+                    <div id="image-preview"></div>
                     <div class="directory-list">
                         <ul class="media-list"></ul>
                     </div>
                 </fieldset>
-                <fieldset>
-                    <legend>New Folder</legend>
-                    
-                    <form action="#" class="folder-creation">
-                        <div>
-                            <input type="text" id="FolderName" name="FolderName"/>
-                        </div>
-                        <div>
-                            <input type="submit" value="Add Folder" class="button"/>
-                        </div>
-                    </form>    
-                </fieldset>
                 
-                <fieldset>
-                    <legend>Upload Image</legend>
-                    <form action="#" class="upload-image">
-                        <div>
-                            <input type="file" name="Image" value="Choose File"/>
-                        </div>
+                <div class="left-col">
+                    <fieldset>
+                        <legend>New Folder</legend>
                     
+                        <form action="#" class="folder-creation">
+                            <div>
+                                <input type="text" id="FolderName" name="FolderName"/>
+                            </div>
+                            <div>
+                                <input type="submit" value="Add Folder" class="button"/>
+                            </div>
+                        </form>    
+                    </fieldset>
+                
+                    <fieldset>
+                        <legend>Upload Image</legend>
+                        <form action="#" class="upload-image">
+                            <div>
+                                <input type="file" name="Image" value="Choose File"/>
+                            </div>
+                    
+                            <div>
+                                <input type="submit" value="Add Image" class="button"/>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+                <div class="right-col">
+                    <fieldset>
+                        <legend>Image Details</legend>
                         <div>
-                            <input type="submit" value="Add Image" class="button"/>
+                            
+                            <table>
+                                <tr>
+                                    <td>Image URL:</td>
+                                    <td>
+                                        <input type="text" id="ImageUrl" name="ImageUrl"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alt Text:</td>
+                                    <td>
+                                        <input type="text" id="AltText" name="AltText" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Class:</td>
+                                    <td>
+                                        <input type="text" id="CssClass" name="CssClass"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Style:</td>
+                                    <td>
+                                        <input type="text" id="CssStyles" name="CssStyles"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alignment:</td>
+                                    <td>
+                                        <select name="Alignment">
+                                            <option>Left</option>
+                                            <option>Center</option>
+                                            <option>Right</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Size:</td>
+                                    <td>
+                                        <input type="text" id="Width" name="Width" style="width: 50px;"/>
+                                        X
+                                        <input type="text" id="Height" name="Height" style="width: 50px;"/>                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lock Aspect Ratio:</td>
+                                    <td>
+                                        <input type="checkbox" id="LockAspectRatio" name="LockAspectRatio"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div style="clear:both;"></div>
+                
+                <div class="control-form">
+                    <form onsubmit="MediaPickerDialog.insertImage();return false;" action="#">
+                        Image:
+                        <input type="text" id="ImageTag" name="ImageTag" class="text"/>
+                        <div class="mceActionPanel">
+                            <input type="button" class="button" id="insert" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertImage();" />
+                            <input type="button" class="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
                         </div>
                     </form>
-                </fieldset>
-                
-                <div>
-                    <div>
-                        image url:
-                        <input type="text" id="ImageUrl" name="ImageUrl"/>
-                    </div>
-                    
-                    <div>
-                        alt text:
-                        <input type="text" id="AltText" name="AltText" />
-                    </div>
-
-                    <div>
-                        class:
-                        <input type="text" id="CssClass" name="CssClass"/>
-                    </div>
-                    
-                    <div>
-                        style:
-                        <input type="text" id="CssStyles" name="CssStyles"/>
-                    </div>
-                    
-                    <div>
-                        alignment:
-                        <select name="Alignment">
-                            <option>Left</option>
-                            <option>Center</option>
-                            <option>Right</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        size:
-                        <input type="text" id="Width" name="Width"/>
-                        X
-                        <input type="text" id="Height" name="Height"/>
-                    </div>
-                    <div>
-                        lock aspect ratio:
-                        <input type="checkbox" id="LockAspectRatio" name="LockAspectRatio"/>
-                    </div>
                 </div>
-
-                <form onsubmit="MediaPickerDialog.insertImage();return false;" action="#">
-                    Image:
-                    <input type="text" id="ImageTag" name="ImageTag" class="text"/>
-                    <div class="mceActionPanel">
-                        <input type="button" class="button" id="insert" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertImage();" />
-                        <input type="button" class="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
-                    </div>
-                </form>
-
             </div>
             
             <div id="files_panel" class="panel">

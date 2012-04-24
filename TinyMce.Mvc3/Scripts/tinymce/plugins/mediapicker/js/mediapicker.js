@@ -94,9 +94,17 @@
     }
 
     function fileClicked(e) {
-        var url = e.data("path");
+        var url, noCacheUrl, img;
+
+        url = e.data("path");
 
         url = downloadUrl + "?path=" + url;
+
+        noCacheUrl = url + '&' + Number.random(1, 9999);
+
+        img = '<img src="' + noCacheUrl + '" />';
+
+        $("#image-preview").html(img);
 
         $("#ImageUrl").val(url);
     }

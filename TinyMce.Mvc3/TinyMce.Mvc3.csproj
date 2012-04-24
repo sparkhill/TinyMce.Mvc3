@@ -57,8 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Media\appbar.alert.png" />
-    <Content Include="App_Data\Media\test\appbar.box.png" />
-    <Content Include="App_Data\Media\pic.png" />
+    <Content Include="App_Data\Media\rachelbilson300.jpg" />
     <Content Include="App_Data\Media\test.txt" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
@@ -170,10 +169,7 @@
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\TinyMce.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\Media\test\another test\test 2\test 3\" />
-    <Folder Include="App_Data\Media\things and stuff\more things\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
