@@ -111,7 +111,8 @@ namespace MediaPickerService
             try
             {
                 var p = ResolveMediaPath(path);
-                var fname = Path.Combine(p, thefile.FileName);
+                var partialFileName = Path.GetFileName(thefile.FileName);
+                var fname = Path.Combine(p, partialFileName ?? "unknown");
                 thefile.SaveAs(fname);
                 return true;
             }

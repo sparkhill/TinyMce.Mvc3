@@ -54,7 +54,7 @@ namespace TinyMce.Mvc3.Controllers
             var script =
             @"
                 <script>
-                    parent.mediapicker.uploadComplete('{0}');
+                    parent.window.mediapicker.uploadComplete('{0}');
                 </script>
             ";
 
