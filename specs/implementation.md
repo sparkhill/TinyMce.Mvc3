@@ -1,3 +1,20 @@
+## Settings
+
+all settings should be applied from the web.config or in tinymce setup.  Server specific settings will be applied in the web.config
+while client specific settings will be applied in the javascript call of tinymce.
+
+web.config settings:
+
+- MediaDirectory: this will be the physical or relative location of the storage container for this plugin
+
+tinymce settings:
+
+- mediapicker_url: this is the url of the controller tinymce will use to get files, upload files, and create directories
+- mediapicker_download_url: this is the url of the file download action
+- mediapicker_restful: the default mediapicker download url will create download urls using the following format: controller/action?path=<path>.  If you
+are all about using restful urls, this mode will reformat the url like so: controller/action/path.  This, of course, will require additional setup in the
+global.asax.
+
 ## Browse Images Tab
 
 this tab will insert an <img /> tag into tinymce

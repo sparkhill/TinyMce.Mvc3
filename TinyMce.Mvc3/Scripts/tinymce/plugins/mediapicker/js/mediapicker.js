@@ -102,13 +102,28 @@
     },
 
     fileClicked: function (e) {
-        var t = this, url, noCacheUrl, img;
+        var t = this, url, noCacheUrl, img, w, h;
         url = e.data("path");
         url = t.downloadUrl + "?path=" + url;
         noCacheUrl = url + '&' + Number.random(1, 9999);
         img = '<img src="' + noCacheUrl + '" />';
         $("#image-preview").html(img);
         $("#ImageUrl").val(url);
+
+        // place full size image in hidden div
+        $('#hidden-image-preview').append(img);
+
+        // get image dimensions
+        $('#hidden-image-preview img').load(function () {
+            w = $('#hidden-image-preview img').width();
+            h = $('#hidden-image-preview img').height();
+
+            $(this).remove();
+
+            // place dimensions in image details form
+            $('#Width').val(w);
+            $('#Height').val(h);
+        });
     },
 
     // TODO: loading spinner and clear input needed.

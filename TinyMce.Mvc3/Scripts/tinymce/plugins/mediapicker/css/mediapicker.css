@@ -49,6 +49,15 @@
     max-width: 180px;
 }
 
+#hidden-image-preview {
+    position: absolute;
+    left: 1000px;
+    top: 1000px;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
 .left-col {
     float: left;
     width: 50%;

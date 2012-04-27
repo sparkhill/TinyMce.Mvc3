@@ -33,6 +33,22 @@ var MediaPickerDialog = {
             alt = 'alt="{1}" '.assign(alt);
         }
 
+        if (!cssClass.isBlank()) {
+            cssClass = 'class="{1}" '.assign(cssClass);
+        }
+
+        if (!cssStyles.isBlank()) {
+            cssStyles = 'style="{1}" '.assign(cssStyles);
+        }
+
+        if (!width.isBlank()) {
+            width = 'width="{1}" '.assign(width);
+        }
+
+        if (!height.isBlank()) {
+            height = 'height="{1}" '.assign(height);
+        }
+
         img = img.assign({
             src: src,
             alt: alt,
@@ -42,7 +58,7 @@ var MediaPickerDialog = {
             height: height
         });
 
-        alert(img);
+        $('#ImageTag').val(img);
 
         tinyMCEPopup.editor.execCommand('mceInsertContent', false, $("#ImageTag").val());
         tinyMCEPopup.close();
